@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.makenv.part2.mapper.StudentMapper">
+    <cache/>
+
+    <resultMap id="studentMap" type="studentBean">
+        <id property="id" column="id"/>
+        <result property="studentName" column="student_name"/>
+        <result property="sex" column="sex" typeHandler="com.makenv.part2.handler.SexEnumHandler"/>
+        <result property="studentId" column="student_id"/>
+        <result property="note" column="note"/>
+        <association property="studentSelfcard" column="student_id"
+                     select="com.makenv.part2.mapper.StudentSelfcardMapper.findStudentSelfcardByStudentId"/>
+
+        <collection property="studentLectureList" column="student_id"
+                    select="com.makenv.part2.mapper.StudentLectureMapper.findStudentLectureByStudentId"/>
+
+        <discriminator javaType="int" column="sex">
+            <case value="1" resultMap="maleStudentMap"></case>
+            <case value="2" resultMap="femaleStudentMap"></case>
+        </discriminator>
+    </resultMap>
+
+    <resultMap id="maleStudentMap" type="maleStudentBean" extends="studentMap">
+        <collection property="studentHealthMaleBeanList" column="student_id"
+                    select="com.makenv.part2.mapper.StudentHealthMaleMapper.findStudentHealthMaleByStudentId"/>
+    </resultMap>
+
+    <resultMap id="femaleStudentMap" type="femaleStudentBean" extends="studentMap">
+        <collection property="studentHealthFemaleBeanList" column="student_id"
+                    select="com.makenv.part2.mapper.StudentHealthFemaleMapper.findStudentHealthFemaleByStudentId"/>
+    </resultMap>
+
+    <select id="getStudent" parameterType="int" resultMap="studentMap">
+        select id, student_name, sex, student_id, note
+        from tb_student where student_id = #{studentId}
+    </select>
+
+    <!--这里是另一种配置-->
+
+    <resultMap id="studentMap2" type="studentBean">
+        <id property="id" column="id"/>
+        <result property="studentName" column="student_name"/>
+        <result property="sex" column="sex" typeHandler="com.makenv.part2.handler.SexEnumHandler"/>
+        <result property="studentId" column="student_id"/>
+        <result property="note" column="snote"/>
+        <!--javaType属性告诉MyBatis将使用哪个类去映射这些字段-->
+        <association property="studentSelfcard" javaType="studentSelfcardBean">
+            <result property="id" column="selfcard_id"/>
+            <result property="studentId" column="student_id"/>
+            <result property="birthNative" column="native"/>
+            <result property="issueDate" column="issue_date"/>
+            <result property="endDate" column="end_date"/>
+            <result property="note" column="selfcard_note"/>
+        </association>
+
+        <!--ofType属性定义的是collection里面的泛型是什么Java类型-->
+        <collection property="studentLectureList" ofType="studentLectureBean">
+            <result property="id" column="slid"/>
+            <result property="studentId" column="student_id"/>
+            <result property="grade" column="grade"/>
+            <result property="note" column="slecture_note"/>
+            <association property="lecture" javaType="lectureBean">
+                <result property="id" column="lecture_id"/>
+                <result property="lectureName" column="lecture_name"/>
+                <result property="note" column="lecture_note"/>
+            </association>
+        </collection>
+
+        <!--根据sex的结果来判断使用哪个类做映射。它决定了使用男生健康表，还是女生健康表-->
+        <discriminator javaType="int" column="sex">
+            <case value="1" resultMap="maleStudentMap2"></case>
+            <case value="2" resultMap="femaleStudentMap2"></case>
+        </discriminator>
+    </resultMap>
+
+    <resultMap id="maleStudentMap2" type="maleStudentBean"
+               extends="studentMap2">
+        <collection property="studentHealthMaleBeanList" ofType="studentHealthMaleBean">
+            <id property="id" column="health_id" />
+            <result property="studentId" column="student_id" />
+            <result property="checkDate" column="check_date" />
+            <result property="note" column="health_note" />
+            <result property="heart" column="heart" />
+            <result property="prostate" column="prostate" />
+        </collection>
+    </resultMap>
+
+    <resultMap id="femaleStudentMap2" type="femaleStudentBean"
+               extends="studentMap2">
+        <collection property="studentHealthFemaleBeanList" ofType="studentHealthFemaleBean">
+            <id property="id" column="health_id" />
+            <result property="studentId" column="student_id" />
+            <result property="checkDate" column="check_date" />
+            <result property="note" column="health_note" />
+            <result property="heart" column="heart" />
+            <result property="uterus" column="uterus" />
+        </collection>
+    </resultMap>
+
+
+    <!--如果sex=1为true则返回shm.id否则返回shf.id
+    if(sex=1,shm.id,shf.id)-->
+
+    <select id="findAllStudent" resultMap="studentMap2">
+        select
+        s.id,s.student_id,s.student_name,s.sex,s.note as snote,
+        if(sex=1,shm.id,shf.id) as
+        health_id,
+        if(sex=1,shm.check_date,shf.check_date) as check_date,
+        if(sex=1,shm.heart,shf.heart) as heart,
+        if(sex=1,shm.note,shf.note) as health_note,
+        shm.prostate,shf.uterus,
+        ss.id as selfcard_id,ss.native,ss.issue_date,ss.end_date,ss.note as
+        selfcard_note,
+        sl.id as slid,sl.lecture_id,sl.grade,sl.note as
+        slecture_note,
+        l.lecture_name,l.note as lecture_note
+        from tb_student s
+        left join tb_male_health shm on s.student_id = shm.student_id
+        left join tb_female_health shf on s.student_id = shf.student_id
+        left join tb_student_selfcard ss on ss.student_id = s.student_id
+        left join tb_student_lecture sl on s.student_id = sl.student_id
+        left join tb_lecture l on sl.lecture_id = l.id
+    </select>
+
+</mapper>

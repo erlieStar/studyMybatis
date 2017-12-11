@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.makenv.part2.mapper.StudentHealthFemaleMapper">
+    <select id="findStudentHealthFemaleByStudentId" parameterType="int"
+            resultType="studentHealthFemaleBean">
+        select id, student_id as studentId, check_date as checkDate, heart, uterus, note
+        from tb_female_health where student_id = #{studentId}
+    </select>
+    <insert id="insertFemale" parameterType="studentHealthMaleBean">
+        insert into tb_female_health (student_id, check_date, heart, uterus, note)
+        values (#{studentId}, #{checkDate}, #{heart}, #{uterus}, #{note})
+    </insert>
+</mapper>
