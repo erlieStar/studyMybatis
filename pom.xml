@@ -9,11 +9,13 @@
     <version>1.0</version>
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
-            <version>3.4.1</version>
+            <version>3.4.6</version>
         </dependency>
+
         <!--mysql驱动包-->
         <dependency>
             <groupId>mysql</groupId>
