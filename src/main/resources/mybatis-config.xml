@@ -9,6 +9,10 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<typeHandlers>
 		<typeHandler handler="com.makenv.part1.typeHandler.MyStringTypeHandler" jdbcType="VARCHAR" javaType="string"/>
 	</typeHandlers>
+	<plugins>
+        <!--可以设置properties属性，不再演示-->
+		<plugin interceptor="com.makenv.part1.plugins.SqlCostTimeInterceptor" />
+	</plugins>
 	<environments default="development">
 		<environment id="development">
 			<transactionManager type="JDBC">
