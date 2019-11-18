@@ -12,6 +12,9 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<plugins>
         <!--可以设置properties属性，不再演示-->
 		<plugin interceptor="com.makenv.part1.plugins.SqlCostTimeInterceptor" />
+<!--		<plugin interceptor="com.makenv.part1.plugins.SqlCostTimeInterceptor" >-->
+<!--			<property name="" value=""/>-->
+<!--		</plugin>-->
 	</plugins>
 	<environments default="development">
 		<environment id="development">
