@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javashitang.part2.mapper.LectureMapper">
+    <insert id="insertLecture" parameterType="lectureBean">
+        insert into tb_lecture (lecture_name,note) values (#{lectureName},#{note})
+    </insert>
+    <select id="getLecture" parameterType="int" resultType="lectureBean">
+        select id, lecture_name as lectureName, note from tb_lecture where id = #{lectureId}
+    </select>
+</mapper>

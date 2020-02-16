@@ -8,7 +8,7 @@
 	<setting name="aggressiveLazyLoading" value="false"/>
 </settings>
 	<typeAliases>
-		<package name="com.makenv.part2.po"/>
+		<package name="com.javashitang.part2.po"/>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -25,6 +25,6 @@
 	</environments>
 	<!--配置映射器-->
 	<mappers>
-		<package name="com.makenv.part2.mapper"/>
+		<package name="com.javashitang.part2.mapper"/>
 	</mappers>
 </configuration>

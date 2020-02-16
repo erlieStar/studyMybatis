@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javashitang.part2.mapper.StudentHealthMaleMapper">
+    <select id="findStudentHealthMaleByStudentId" parameterType="int"
+            resultType="studentHealthMaleBean">
+        select id, student_id as studentId, check_date as checkDate, heart, prostate, note
+        from tb_male_health where student_id = #{studentId}
+    </select>
+    <insert id="insertMale" parameterType="studentHealthMaleBean">
+        insert into tb_male_health (student_id, check_date, heart, prostate, note)
+        values (#{studentId}, #{checkDate}, #{heart}, #{prostate}, #{note})
+    </insert>
+</mapper>
