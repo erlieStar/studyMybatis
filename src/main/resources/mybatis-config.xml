@@ -9,13 +9,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<typeHandlers>
 		<typeHandler handler="com.javashitang.part1.typeHandler.MyStringTypeHandler" jdbcType="VARCHAR" javaType="string"/>
 	</typeHandlers>
-	<plugins>
-        <!--可以设置properties属性，不再演示-->
-		<plugin interceptor="com.javashitang.part1.plugins.SqlCostTimeInterceptor" />
-<!--		<plugin interceptor="com.javashitangitang.part1.plugins.SqlCostTimeInterceptor" >-->
-<!--			<property name="" value=""/>-->
-<!--		</plugin>-->
-	</plugins>
 	<environments default="development">
 		<environment id="development">
 			<transactionManager type="JDBC">
@@ -31,6 +24,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	</environments>
 	<!--配置映射器-->
 	<mappers>
-		<mapper resource="com/makenv/part1/mapper/RoleMapper.xml"/>
+		<mapper resource="com/javashitang/part1/mapper/RoleMapper.xml"/>
 	</mappers>
 </configuration>
