@@ -1,7 +1,7 @@
 package com.javashitang.part1.main;
 
 import com.javashitang.part1.mapper.RoleMapper;
-import com.javashitang.part1.po.Role;
+import com.javashitang.part1.pojo.Role;
 import com.javashitang.part1.util.SqlSessionFactoryUtil;
 import org.apache.ibatis.session.SqlSession;
 

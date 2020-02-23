@@ -1,6 +1,6 @@
 package com.javashitang.part2.mapper;
 
-import com.javashitang.part2.po.LectureBean;
+import com.javashitang.part2.pojo.LectureBean;
 import org.apache.ibatis.annotations.Param;
 
 public interface LectureMapper {

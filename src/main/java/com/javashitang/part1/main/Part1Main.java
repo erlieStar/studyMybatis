@@ -1,7 +1,7 @@
 package com.javashitang.part1.main;
 
 import com.javashitang.part1.mapper.RoleMapper;
-import com.javashitang.part1.po.Role;
+import com.javashitang.part1.pojo.Role;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -23,10 +23,8 @@ public class Part1Main {
             RoleMapper roleMapper = sqlSession.getMapper(RoleMapper.class);
             Role role = roleMapper.getRole(3L);
             System.out.println(role.getRoleName());
-            sqlSession.commit();
         } catch(Exception e) {
             e.printStackTrace();
-            sqlSession.rollback();
         } finally {
             if (sqlSession != null) {
                 sqlSession.close();

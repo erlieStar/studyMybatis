@@ -16,6 +16,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		</environment>
 	</environments>
 	<mappers>
-		<mapper resource="com/makenv/part3/mapper/ProductMapper.xml"/>
+		<mapper resource="com/javashitang/part3/mapper/ProductMapper.xml"/>
 	</mappers>
 </configuration>

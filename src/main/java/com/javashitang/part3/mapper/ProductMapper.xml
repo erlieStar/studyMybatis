@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.javashitang.part3.mapper.ProductMapper">
 
-    <select id="selectProductList" resultType="com.javashitang.part3.po.Product">
+    <select id="selectProductList" resultType="com.javashitang.part3.pojo.Product">
         select * from product
     </select>
 

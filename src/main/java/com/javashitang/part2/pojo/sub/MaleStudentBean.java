@@ -1,6 +1,6 @@
-package com.javashitang.part2.po.sub;
+package com.javashitang.part2.pojo.sub;
 
-import com.javashitang.part2.po.StudentBean;
+import com.javashitang.part2.pojo.StudentBean;
 
 import java.util.List;
 

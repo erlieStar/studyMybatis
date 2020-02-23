@@ -1,4 +1,4 @@
-package com.javashitang.part2.po;
+package com.javashitang.part2.pojo;
 
 public enum SexEnum {
 

@@ -1,7 +1,7 @@
 package com.javashitang.part3.main;
 
 import com.javashitang.part3.mapper.ProductMapper;
-import com.javashitang.part3.po.Product;
+import com.javashitang.part3.pojo.Product;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;

@@ -1,6 +1,6 @@
 package com.javashitang.part3.mapper;
 
-import com.javashitang.part3.po.Product;
+import com.javashitang.part3.pojo.Product;
 
 import java.util.List;
 

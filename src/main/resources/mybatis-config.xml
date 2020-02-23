@@ -4,7 +4,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<package name="com.javashitang.part1.po"/>
+		<package name="com.javashitang.part1.pojo"/>
 	</typeAliases>
 	<typeHandlers>
 		<typeHandler handler="com.javashitang.part1.typeHandler.MyStringTypeHandler" jdbcType="VARCHAR" javaType="string"/>
@@ -20,7 +20,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 			</transactionManager>
 			<dataSource type="POOLED">
 				<property name="driver" value="com.mysql.jdbc.Driver"/>
-				<property name="url" value="jdbc:mysql://localhost:3306/mybatis"/>
+				<property name="url" value="jdbc:mysql://www.erlie.cc:3306/mybatis"/>
 				<property name="username" value="root"/>
 				<property name="password" value="peng2014"/>
 			</dataSource>

@@ -1,7 +1,7 @@
 package com.javashitang.part2.main;
 
 import com.javashitang.part2.mapper.StudentMapper;
-import com.javashitang.part2.po.StudentBean;
+import com.javashitang.part2.pojo.StudentBean;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;

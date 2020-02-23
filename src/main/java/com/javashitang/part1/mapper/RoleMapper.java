@@ -1,7 +1,7 @@
 package com.javashitang.part1.mapper;
 
-import com.javashitang.part1.po.Role;
-import com.javashitang.part1.po.RoleParam;
+import com.javashitang.part1.pojo.Role;
+import com.javashitang.part1.pojo.RoleParam;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

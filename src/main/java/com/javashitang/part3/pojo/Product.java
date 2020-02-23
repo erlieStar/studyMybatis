@@ -1,4 +1,4 @@
-package com.javashitang.part3.po;
+package com.javashitang.part3.pojo;
 
 public class Product {
 

@@ -1,6 +1,6 @@
-package com.javashitang.part2.po.sub;
+package com.javashitang.part2.pojo.sub;
 
-import com.javashitang.part2.po.StudentHealthBean;
+import com.javashitang.part2.pojo.StudentHealthBean;
 
 public class StudentHealthMaleBean extends StudentHealthBean{
 

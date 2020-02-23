@@ -1,16 +1,14 @@
-package com.javashitang.part2.po;
+package com.javashitang.part2.pojo;
 
-import java.math.BigDecimal;
-
-public class StudentLectureBean {
+public class StudentHealthBean {
 
     /*
-     * 学生课程信息
+     * 学生健康信息，有2个子类，男学生信息和女学生信息
      */
     private Integer id;
     private Integer studentId;
-    private LectureBean lecture;
-    private BigDecimal grade;
+    private String checkDate;
+    private String heart;
     private String note;
 
     public Integer getId() {
@@ -29,20 +27,20 @@ public class StudentLectureBean {
         this.studentId = studentId;
     }
 
-    public LectureBean getLecture() {
-        return lecture;
+    public String getCheckDate() {
+        return checkDate;
     }
 
-    public void setLecture(LectureBean lecture) {
-        this.lecture = lecture;
+    public void setCheckDate(String checkDate) {
+        this.checkDate = checkDate;
     }
 
-    public BigDecimal getGrade() {
-        return grade;
+    public String getHeart() {
+        return heart;
     }
 
-    public void setGrade(BigDecimal grade) {
-        this.grade = grade;
+    public void setHeart(String heart) {
+        this.heart = heart;
     }
 
     public String getNote() {

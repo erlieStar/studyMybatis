@@ -1,4 +1,4 @@
-package com.javashitang.part1.po;
+package com.javashitang.part1.pojo;
 
 public class RoleParam {
 
