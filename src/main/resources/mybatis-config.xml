@@ -20,9 +20,9 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 			</transactionManager>
 			<dataSource type="POOLED">
 				<property name="driver" value="com.mysql.jdbc.Driver"/>
-				<property name="url" value="jdbc:mysql://www.erlie.cc:3306/mybatis"/>
-				<property name="username" value="root"/>
-				<property name="password" value="peng2014"/>
+				<property name="url" value="jdbc:mysql://myhost:3306/mybatis"/>
+				<property name="username" value="mybatis"/>
+				<property name="password" value="mybatis"/>
 			</dataSource>
 		</environment>
 	</environments>
