@@ -6,4 +6,8 @@
         select id, `name`, phone from author
     </select>
 
+    <update id="updateById">
+        update author set `name` = #{name} where id = #{id}
+    </update>
+
 </mapper>
