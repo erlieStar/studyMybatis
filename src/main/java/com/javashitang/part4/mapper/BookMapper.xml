@@ -6,8 +6,8 @@
         id, authorId, `name`
     </sql>
 
-    <select id="selectBookByIdAndName" parameterType="int" resultType="com.javashitang.part4.pojo.Book">
-        select id, authorId, `name` from book where id = #{id} and name = #{name}
+    <select id="selectBookByIdAndName" resultType="com.javashitang.part4.pojo.Book">
+        select id, authorId, `name` from book where id = #{id} and `name` = #{name}
     </select>
 
     <select id="selectBookById" parameterType="int" resultType="com.javashitang.part4.pojo.Book">
