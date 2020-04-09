@@ -21,6 +21,7 @@ public class SqlCostTimeInterceptor implements Interceptor {
 
     public static final Logger logger = LoggerFactory.getLogger(SqlCostTimeInterceptor.class);
 
+    @Override
     public Object intercept(Invocation invocation) throws Throwable {
         StatementHandler statementHandler = (StatementHandler) invocation.getTarget();
         long start = System.currentTimeMillis();
@@ -36,10 +37,12 @@ public class SqlCostTimeInterceptor implements Interceptor {
         }
     }
 
+    @Override
     public Object plugin(Object target) {
         return Plugin.wrap(target, this);
     }
 
+    @Override
     public void setProperties(Properties properties) {
 
     }
