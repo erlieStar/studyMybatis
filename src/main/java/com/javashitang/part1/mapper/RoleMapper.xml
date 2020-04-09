@@ -38,16 +38,20 @@
         select id, role_name as roleName, note from role where role_name = #{roleName} and note = #{note}
     </select>
 
-<select id="getRole3" parameterType="string" resultMap="roleResultMap">
-    <bind name="pattern" value="'%' + _parameter + '%'"/>
-    select id, role_name, note from role where role_name LIKE #{pattern}
-</select>
+    <select id="getRole3" parameterType="string" resultMap="roleResultMap">
+        <bind name="pattern" value="'%' + _parameter + '%'"/>
+        select id, role_name, note from role where role_name LIKE #{pattern}
+    </select>
 
     <select id="findRoles4" parameterType="string" resultMap="roleResultMap">
         select id, role_name, note from role
         <if test="type = 'y'">
             where 1 = 1
         </if>
+    </select>
+
+    <select id="findAllRoles" resultMap="roleResultMap">
+        select id, role_name, note from role
     </select>
 
     <select id="findRoles3" resultType="roleTest">
